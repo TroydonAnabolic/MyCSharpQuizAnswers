@@ -1,0 +1,1993 @@
+﻿/*
+ 
+1. Write a C# Sharp program to print Hello and your name in a separate line. Go to the editor
+
+
+ */
+
+using System;
+using System.Collections.Generic;
+public class UserInput
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Hello World");
+        System.Console.WriteLine("Troydon Luicien");
+
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+2. Write a C# Sharp program to print the sum of two numbers. Go to the editor
+
+ */
+
+using System;
+using System.Collections.Generic;
+public class Exercises
+{
+    public static void Main(string[] args)
+    {
+        int a = 1, b = 2;
+        Console.WriteLine(a + b);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+5. Write a C# Sharp program to swap two numbers. Go to the editor
+Test Data:
+Input the First Number : 5
+Input the Second Number : 6
+Expected Output:
+After Swapping :
+First Number : 6
+Second Number : 5
+
+ */
+
+using System;
+using System.Collections.Generic;
+public class Exercises
+{
+    public static void Main(string[] args)
+    {
+        int firstNumber = 5, secondNumber = 6, swapper = 0;
+
+        swapper = secondNumber; // swapper is 6
+        secondNumber = firstNumber; // second is now 5
+        firstNumber = swapper; // first is now 6
+
+        Console.WriteLine(firstNumber);
+        Console.WriteLine(secondNumber);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+6. Write a C# Sharp program to print the output of multiplication of three numbers which will be entered by the user. Go to the editor
+Test Data:
+Input the first number to multiply: 2
+Input the second number to multiply: 3
+Input the third number to multiply: 6
+Expected Output:
+2 x 3 x 6 = 36
+
+ */
+
+using System;
+using System.Collections.Generic;
+public class Exercises
+{
+    public static void Main(string[] args)
+    {
+        int a, b, c;
+
+        a = Convert.ToInt32(Console.ReadLine());
+        b = Convert.ToInt32(Console.ReadLine());
+        c = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(a * b * c);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+7. Write a C# Sharp program to print on screen the output of adding, subtracting, multiplying and dividing of two numbers which will be entered by the user. Go to the editor
+Test Data:
+Input the first number: 25
+Input the second number: 4
+Expected Output:
+25 + 4 = 29
+25 - 4 = 21
+25 x 4 = 100
+25 / 4 = 6
+25 mod 4 = 1
+
+ */
+
+using System;
+using System.Collections.Generic;
+public class Exercises
+{
+    public static void Main(string[] args)
+    {
+        decimal a, b;
+
+        a = Convert.ToInt32(Console.ReadLine());
+        b = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(a + b);
+        Console.WriteLine(a - b);
+        Console.WriteLine(a * b);
+        Console.WriteLine(a / b);
+        Console.WriteLine(a % b);
+
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+8. Write a C# Sharp program that takes a number as input and print its multiplication table. Go to the editor
+Test Data:
+Enter the number: 5
+Expected Output:
+5 * 0 = 0
+5 * 1 = 5
+5 * 2 = 10
+5 * 3 = 15
+ */
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        int x;
+        int i;
+
+        Console.WriteLine("Enter a number:");
+        x = Convert.ToInt32(Console.ReadLine());
+
+        for (i = 0; i < 101; i++)
+        {
+            Console.WriteLine("The table is : {0} x {1} = {2}", x, i, (x * i));
+        }
+
+    }
+}
+
+=========================================================================================================================================================================================================
+/*
+ 
+9. Write a C# Sharp program that takes four numbers as input to calculate and print the average. Go to the editor
+Test Data:
+Enter the First number: 10
+Enter the Second number: 15
+Enter the third number: 20
+Enter the four number: 30
+
+Expected Output:
+The average of 10 , 15 , 20 , 30 is: 18
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        int a, b, c, d;
+
+        Console.WriteLine("Enter a number:");
+        a = Convert.ToInt32(Console.ReadLine());
+        b = Convert.ToInt32(Console.ReadLine());
+        c = Convert.ToInt32(Console.ReadLine());
+        d = Convert.ToInt32(Console.ReadLine());
+
+        double result = (a + b + c + d) / 4;
+
+        Console.WriteLine("The average of {0} {1} {2} {3} is {4}", a, b, c, d, result);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+10. Write a C# Sharp program to that takes three numbers(x,y,z) as input and print the output of (x+y).z and x.y + y.z. Go to the editor
+Test Data:
+Enter first number - 5
+Enter second number - 6
+Enter third number - 7
+
+Expected Output:
+Result of specified numbers 5, 6 and 7, (x+y).z is 77 and x.y + y.z is 72
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        int a, b, c;
+
+        Console.WriteLine("Enter a number:");
+        a = Convert.ToInt32(Console.ReadLine());
+        b = Convert.ToInt32(Console.ReadLine());
+        c = Convert.ToInt32(Console.ReadLine());
+
+        double result = (a + b) * 7;
+        double result2 = a * b + b * c;
+
+        Console.WriteLine("The first answer of ({0}+{1})/{2}) is {3}. The second answer of {0} * {1} + {1} * {2} is {4}", a, b, c, result, result2);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+11. Write a C# Sharp program that takes an age (for example 20) as input and prints something as "You look older than 20". Go to the editor
+Test Data:
+Enter your age - 25
+Expected Output:
+You look older than 25
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        int age;
+
+        Console.WriteLine("Enter your age:");
+        age = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("You look older than {0}", age);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+12. Write a C# program to that takes a number as input and display it four times in a row (separated by blank spaces), and then four times in the next row, with no separation.
+You should do it two times: Use Console. Write and then use {0}. Go to the editor
+Test Data:
+Enter a digit: 25
+Expected Output:
+25 25 25 25
+25252525
+25 25 25 25
+25252525
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        int digit;
+
+        Console.WriteLine("Enter digit to be displayed:");
+        digit = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("{0}    {0}    {0}    {0}", digit);
+        Console.WriteLine("{0}{0}{0}{0}", digit);
+        Console.WriteLine("{0}    {0}    {0}    {0}", digit);
+        Console.WriteLine("{0}{0}{0}{0}", digit);
+
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+13. Write a C# program that takes a number as input and then displays a rectangle of 3 columns wide and 5 rows tall using that digit. Go to the editor
+Test Data:
+Enter a number: 5
+Expected Output:
+555
+5 5
+5 5
+5 5
+555
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        int digit;
+
+        Console.WriteLine("Enter digit to be displayed:");
+        digit = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("{0}{0}{0}", digit);
+        Console.WriteLine("{0} {0}", digit);
+        Console.WriteLine("{0} {0}", digit);
+        Console.WriteLine("{0}{0}{0}", digit);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+14. Write a C# program to convert from celsius degrees to Kelvin and Fahrenheit. Go to the editor
+Test Data:
+Enter the amount of celsius: 30
+Expected Output:
+Kelvin = 303
+Fahrenheit = 86
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        decimal tempInCelsius = new decimal();
+        Console.WriteLine("Enter temp in celsius to be converted:");
+        tempInCelsius = Convert.ToInt32(Console.ReadLine());
+
+        decimal ConvertToKelvin = tempInCelsius + 273;
+         decimal ConvertToFarenheit = (tempInCelsius * 9 / 5) + 32;
+
+        Console.WriteLine("{0} degress Celsius is {1} degrees Kelvin", tempInCelsius, ConvertToKelvin);
+        Console.WriteLine("{0} degress Celsius is {1} degrees Farenheit", tempInCelsius, ConvertToFarenheit);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+15. Write a C# program remove specified a character from a non-empty string using index of a character. Go to the editor
+Test Data:
+w3resource
+Sample Output:
+wresource
+w3resourc
+3resource
+
+ */
+
+using System;
+public class Exercise8
+{
+    public static void Main()
+    {
+        char character;
+        string sampleString;
+
+        Console.WriteLine("Enter character to be removed");
+        character = Convert.ToChar(Console.ReadLine());
+
+        Console.WriteLine("Enter string you would like to remove the character from");
+        sampleString = Console.ReadLine();
+        char[] charArr = sampleString.ToCharArray();
+
+        for (int i = 0; i < charArr.Length; i++)
+        {
+            if (charArr[i] == character)
+            {
+                Console.WriteLine(remove_char(sampleString, i));
+            }
+        }
+    }
+
+    public static string remove_char(string str, int n)
+    {
+        return str.Remove(n, 1);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+16. Write a C# program to create a new string from a given string where the first and last characters will change their positions. Go to the editor
+Test Data:
+w3resource
+Python
+Sample Output:
+e3resourcw
+nythoP
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        string sampleString;
+
+        Console.WriteLine("Enter word to be reversed");
+        sampleString = Console.ReadLine();
+
+        Console.WriteLine(SwapString(sampleString));
+    }
+
+    public static string SwapString(string str)
+    {
+        int len = str.Length;
+        return str[len - 1] + str.Substring(1, len - 2) + str[0]; 
+        // str[len - 1] is the element of the length -1 which is total length of string aka Python has 6 letters so Python[5] = 'n' + 
+        // str.Substring(1, len - 2) Start at second element and return 2 chars less than total length aka Python.Substring(1, 4) = 'ytho'
+        // str[0]; // final letter is first instance P
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+17. Write a C# program to create a new string from a given string (length 1 or more ) with the first character added at the front and back. Go to the editor
+Sample Output:
+Input a string : The quick brown fox jumps over the lazy dog.
+TThe quick brown fox jumps over the lazy dog.T
+Click me to see the solution
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        string sampleString;
+
+        Console.WriteLine("Enter word to be reversed");
+        sampleString = Console.ReadLine();
+
+        Console.WriteLine(AddChars(sampleString));
+    }
+
+    public static string AddChars(string str)
+    {
+        int len = str.Length;
+        return str[0] + str.Substring(0, len) + str[0]; 
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+18. Write a C# program to check two given integers and return true if one is negative and one is positive. Go to the editor
+Sample Output:
+Input first integer:
+-5
+Input second integer:
+25
+Check if one is negative and one is positive:
+True
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        int firstInt, secondInt;
+
+        Console.WriteLine("Enter first int");
+        firstInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter second int");
+        secondInt = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(CheckPositiveNegative(firstInt, secondInt));
+    }
+
+    public static bool CheckPositiveNegative(int intOne, int intTwo)
+    {
+        bool result = false;
+
+        if ((intOne > 0 && intTwo < 0) || (intOne < 0 && intTwo > 0))
+        {
+            result = true;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+19. Write a C# program to compute the sum of two given integers, if two values are equal then return the triple of their sum. Go to the editor
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        int firstInt, secondInt;
+
+        Console.WriteLine("Enter first int");
+        firstInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter second int");
+        secondInt = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(TripleValue(firstInt, secondInt));
+    }
+
+    public static int TripleValue(int intOne, int intTwo)
+    {
+        int result = 0;
+
+        if ( intOne == intTwo)
+        {
+            result = (intOne + intTwo) * 3;
+            return result;
+        }
+        return result = intOne + intTwo;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+20. Write a C# program to get the absolute value of the difference between two given numbers.
+Return double the absolute value of the difference if the first number is greater than second number. Go to the editor
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        int firstInt, secondInt;
+
+        Console.WriteLine("Enter first int");
+        firstInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter second int");
+        secondInt = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(TripleValue(firstInt, secondInt));
+    }
+
+    public static int TripleValue(int intOne, int intTwo)
+    {
+        int result = 0;
+
+        result = intOne - intTwo;
+
+        if (result < 0 )
+        {
+            result = (intOne - intTwo) * -1; // negative multipled by negative is positive
+        }
+
+        if ( intOne > intTwo)
+        {
+            result = (intOne - intTwo) * 2;
+            return result;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+21. Write a C# program to check the sum of the two given integers and return true if one of the integer is 20 or if their sum is 20. Go to the editor
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        int firstInt, secondInt;
+
+        Console.WriteLine("Enter first int");
+        firstInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter second int");
+        secondInt = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(CheckSum(firstInt, secondInt));
+    }
+
+    public static bool CheckSum(int intOne, int intTwo)
+    {
+        bool result = false;
+        int sum = intOne + intTwo;
+
+        if ( intOne == 20 || sum == 20)
+        {
+            return result = true;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+22. Write a C# program to check if an given integer is within 20 of 100 or 200. Go to the editor
+Sample Output:
+Input an integer:
+25
+False
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        int firstInt;
+
+        Console.WriteLine("Enter first int");
+        firstInt = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(CheckInt(firstInt));
+    }
+
+    public static bool CheckInt(int n)
+    {
+        if (Math.Abs(n - 100) <= 20 || Math.Abs(n - 200) <= 20)
+            return true;
+        return false;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+23. Write a C# program to convert a given string into lowercase. Go to the editor
+Sample Output:
+write a c# sharp program to display the following pattern using the alphabet.
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        string inputString;
+
+        Console.WriteLine("Enter first int");
+        inputString = Console.ReadLine();
+
+        Console.WriteLine(inputString.ToLower());
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+24. Write a C# program to find the longest word in a string. Go to the editor
+Test Data: Write a C# Sharp Program to display the following pattern using the alphabet.
+Sample Output:
+following
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        string inputString;
+
+        Console.WriteLine("Enter first int");
+        inputString = Console.ReadLine();
+
+        Console.WriteLine(checkLongestWord(inputString));
+    }
+
+    private static string checkLongestWord(string inputString)
+    {
+        string[] words = inputString.Split(new[] { " " }, StringSplitOptions.None); // split the strings into sub strings on a space strings
+        int ctr = 0;
+
+        foreach (string s in words) // in every string in string array
+        {
+            if (s.Length > ctr)  // if the length is greater than counter = 0 initially, it keeps checking to reassign value of ctr until it reaches highest string length
+            {
+                inputString = s; // inputSString new value is now the value of the string being counted
+                ctr = s.Length; // counter is assigned value of the word being checked's length
+            }
+        }
+        return inputString;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+25. Write a C# program to print the odd numbers from 1 to 99. Prints one number per line. Go to the editor
+Sample Output:
+Odd numbers from 1 to 99. Prints one number per line.
+1
+3
+5
+7
+9
+...
+95
+97
+99
+
+ */
+
+using System;
+using System.Text;
+
+public class Exercise8
+{
+    public static void Main()
+    {
+        Console.WriteLine("Odd Numbers from 1 to 99:");
+
+        for (int i = 1; i < 100; i++)
+        {
+            if (i % 2 != 0)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+27. Write a C# program and compute the sum of the digits of an integer. Go to the editor
+Sample Output:
+Input a number(integer): 12
+Sum of the digits of the said integer: 3
+
+ */
+
+using System;
+using System.Linq;
+
+public class Exercise26
+{
+    public static void Main()
+    {
+        int inputNumber = 0;
+
+        Console.WriteLine("\nEnter an integer number: ");
+        inputNumber = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(SumOfNumber(inputNumber));
+
+    }
+    public static int SumOfNumber(int inputNumber)
+    {
+        int result = 0;
+        while (inputNumber > 0)
+        {
+            result += inputNumber % 10; // for e.g 12 is input. 12/10 the modulus is 1 so result is 1, next iteration 1.2%10 is1.2/10 = 0.12 etc.
+            inputNumber = inputNumber / 10; // 12/10 = 1.2, inputNumber is then 1.2
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+28. Write a C# program to reverse the words of a sentence. Go to the editor
+Sample Output:
+Original String: Display the pattern like pyramid using the alphabet.
+Reverse String: alphabet. the using pyramid like pattern the Display
+
+ */
+
+using System;
+using System.Linq;
+using System.Text;
+
+public class Exercise26
+{
+    public static void Main()
+    {
+        string inputSentence;
+
+        Console.WriteLine("\nEnter a sentence to reverse ");
+        inputSentence = Console.ReadLine();
+
+        Console.WriteLine(ReverseSentence(inputSentence));
+
+    }
+    public static string ReverseSentence(string inputSentence)
+    {
+        string[] words = inputSentence.Split(new[] { " " }, StringSplitOptions.None); // split the strings into sub strings on a space strings
+        StringBuilder result = new StringBuilder();
+        for (int i = words.Length - 1; i >= 0; i--) // start count at the max value of the number of arrays, count backwards until i < 0
+        { 
+            result.Append(words[i]); // e.g {Display, the, pattern, like, pyramid, using, the, alphabet.} is added from words[8] first and appended to the sb
+            result.Append(" ");
+        }
+        return result.ToString();
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+29. Write a C# program to find the size of a specified file in bytes. Go to the editor
+Sample Output:
+Size of a file: 31
+
+ */
+using System;
+using System.IO;
+
+class Test
+{
+    public static void Main()
+    {
+        try
+        {   // Open the text file using file info.
+                FileInfo file = new FileInfo("TestFile.txt");
+                // Read the stream to a string, and write the string to the console.
+                Console.WriteLine(file.Length);
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine("The file could not be read:");
+            Console.WriteLine(e.Message);
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+30. Write a C# program to convert a hexadecimal number to decimal number. Go to the editor
+Sample Output:
+Hexadecimal number: 4B0 aka 4 11 0
+Convert to-
+Decimal number: 1200
+
+Example 1
+0 = 0 * (16 ^ 0) = 0
+B = 11 * (16 ^ 1) = 176
+4 = 4 * (16^2) = 1024
+Then, we add the results.
+0 +  176 + 1024 = 1200 base10 decimal
+
+ */
+using System;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        string inputHexa = "";
+        try
+        {
+            Console.WriteLine("Enter a hexadecimal number to convert");
+            inputHexa = Console.ReadLine();
+
+            int decValue = int.Parse(inputHexa, System.Globalization.NumberStyles.HexNumber);
+
+            Console.WriteLine(decValue);
+
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine("The conversion formula is incorrect or you entered an invalid input");
+            Console.WriteLine(e.Message);
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+31. Write a C# program to multiply corresponding elements of two arrays of integers. Go to the editor
+Sample Output:
+Array1: [1, 3, -5, 4]
+Array2: [1, 4, -5, -2]
+Multiply corresponding elements of two arrays:
+1 12 25 -8
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        int[] Array1 = { 1, 3, -5, 4 };
+        int[] Array2 = { 1, 4, -5, -2 };
+
+        List<int> resultArray = new List<int>();
+
+        try
+        {
+            for (int i = 0; i < Array1.Length; i++)
+            {
+                resultArray.Add(Array1[i] * Array2[i]);
+            }
+
+            foreach  (int i in resultArray)
+            {
+                Console.Write($"{i},");
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine("The conversion formula is incorrect or you entered an invalid input");
+            Console.WriteLine(e.Message);
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+32. Write a C# program to create a new string of four copies, taking last four characters from a given string. If the length of the given string is less than 4 return the original one. Go to the editor
+Sample Output:
+Input a string : The quick brown fox jumps over the lazy dog.
+dog.dog.dog.dog.
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        string sampleString = " The quick brown fox jumps over the lazy dog.";
+
+        Console.WriteLine(RepeatLastWord(sampleString));
+    }
+
+    private static string RepeatLastWord(string sample)
+    {
+        StringBuilder sb = new StringBuilder();
+        string[] words = sample.Split(new[] { " " }, StringSplitOptions.None);
+
+        for (int i = words.Length; i > words.Length - 4; i--) // i = 9; i > 5; i--
+        {
+            sb.Append(words[(words.Length - 1)]); // adds the last string. words of instance [ 9 - 1 ] aka words[8]
+        }
+        return sb.ToString();
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+33. Write a C# program to check if a given positive number is a multiple of 3 or a multiple of 7. Go to the editor
+Sample Output:
+Input first integer:
+15
+True
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        int checkNumber = 13;
+
+        Console.WriteLine(CheckIfMultiple(checkNumber));
+    }
+
+    private static bool CheckIfMultiple(int checkNumber)
+    {
+        bool result = false;
+
+        if ((checkNumber % 3) == 0 || (checkNumber % 7) == 0)
+        {
+            result = true;
+        }
+
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+34. Write a C# program to check if a string starts with a specified word. Go to the editor
+Note: Suppose the sentence starts with "Hello"
+Sample Data: string1 = "Hello how are you?"
+Result: Hello.
+Sample Output:
+Input a string : Hello how are you?
+True
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        string sampleSentence = "Hello how are you?";
+
+        Console.WriteLine(CheckIfHasWord(sampleSentence));
+    }
+
+    private static bool CheckIfHasWord(string checkWord)
+    {
+        bool result = false;
+
+        Console.WriteLine("Check if sentence includes this word");
+        string test = Console.ReadLine();
+
+        if (checkWord.Contains(test))
+        {
+            result = true;
+        }
+
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+35. Write a C# program to check two given numbers where one is less than 100 and other is greater than 200. Go to the editor
+Sample Output:
+Input a first number(<100): 75
+Input a second number(>100): 250
+True
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        Console.WriteLine("Input first number");
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Input second number");
+        int secondNumber = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(CheckGreaterOrLess(firstNumber, secondNumber));
+    }
+
+    private static bool CheckGreaterOrLess(int firstNumber, int secondNumber)
+    {
+        bool result = false;
+
+        if (firstNumber < 100 && secondNumber > 100)
+        {
+            result = true;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+36. Write a C# program to check if an integer (from the two given integers) is in the range -10 to 10. Go to the editor
+Sample Output:
+Input a first number: -5
+Input a second number: 8
+True
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+    public static void Main()
+    {
+        Console.WriteLine("Input first number");
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Input second number");
+        int secondNumber = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(CheckGreaterOrLess(firstNumber, secondNumber));
+    }
+
+    private static bool CheckGreaterOrLess(int firstNumber, int secondNumber)
+    {
+        bool result = false;
+
+        if ((firstNumber >= -10 && firstNumber <= 10) && (secondNumber >= -10 && secondNumber <= 10))
+        {
+            result = true;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+37. Write a C# program to check if "HP" appears at second position in a string and returns the string without "HP". Go to the editor
+Test Data: PHP Tutorial
+Sample Output:
+P Tutorial
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        string testSentence = "PHP Tutorial";
+        Console.WriteLine(CheckIfHasHP(testSentence));
+    }
+
+    private static string CheckIfHasHP(string testSentence)
+    {
+
+        for (int i = 0; i < testSentence.Length; i++)
+        {
+            if (testSentence.Contains("HP"))
+            {
+                testSentence = testSentence.Remove(testSentence.IndexOf("HP"), 2);
+            }
+        }
+        return testSentence;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+38. Write a C# program to get a new string of two characters from a given string. The first and second character of the given string must be "P" and "H",
+so PHP will be "PH". Go to the editor
+Test Data: PHP
+Sample Output:
+PH
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        string givenString = "PHP lolo";
+
+        Console.WriteLine($"{givenString[0]}{givenString[1]}");
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+39. Write a C# program to find the largest and lowest values from three integer values. Go to the editor
+Test Data:
+Input first integer:
+15
+Input second integer:
+25
+Input third integer:
+30
+Sample Output
+Largest of three: 30
+Lowest of three: 15
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        Console.WriteLine("Write the first int");
+        int firsInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Write the second int");
+        int secondInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Write the third int");
+        int thirdInt = Convert.ToInt32(Console.ReadLine());
+
+        LargestAndLowest(firsInt, secondInt, thirdInt);
+    }
+
+    public static void LargestAndLowest(int one, int two, int three)
+    {
+        int smallest = 0;
+        int largest = 0;
+
+        if (one < two && one < three)
+        {
+            smallest = one;
+        }
+        else if (two < one && two < three)
+        {
+            smallest = two;
+        }
+        else if (three < one && three < two)
+        {
+            smallest = three;
+        }
+        
+        if (one > two && one > three)
+        {
+            largest = one;
+        }
+        else if (two > one && two > three)
+        {
+            largest = two;
+        }
+        else if (three > one && three > two)
+        {
+            largest = three;
+        }
+
+        Console.WriteLine($"The smallest is {smallest}");
+        Console.WriteLine($"The largest is {largest}");
+    }
+}
+
+ORRRR
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+public class Exercise39 {
+static void Main(string[] args)
+        {
+Console.WriteLine("\nInput first integer:");  
+int x = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input second integer:");  
+int y = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input third integer:");  
+int z = Convert.ToInt32(Console.ReadLine());
+              
+Console.WriteLine("Largest of three: "+Math.Max(x, Math.Max(y, z)));
+Console.WriteLine("Lowest of three: "+Math.Min(x, Math.Min(y, z)));
+        }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+40. Write a C# program to check the nearest value of 20 of two given integers and return 0 if two numbers are same. Go to the editor
+Test Data:
+Input first integer:
+15
+Input second integer:
+12
+Sample Output
+15
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        Console.WriteLine("Write the first int");
+        int firsInt = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Write the second int");
+        int secondInt = Convert.ToInt32(Console.ReadLine());
+
+        NearestValue(firsInt, secondInt);
+    }
+
+    public static void NearestValue(int one, int two) // e.g 1, 19
+    {
+        int result = 0;
+
+        if ( Math.Abs(20 - one) < Math.Abs(20 - two))
+        {
+            result = one;
+        }
+        else if (Math.Abs(20 - two) < Math.Abs(20 - one))
+        {
+            result = two;
+        }
+        else if (one == two)
+        {
+            result = 0;
+        }
+        else
+        {
+            Console.WriteLine("Please enter a numeric number below 20");
+        }
+
+        Console.WriteLine(result);
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+41. Write a C# program to check if a given string contains ‘w’ character between 1 and 3 times. Go to the editor
+Test Data:
+Input a string (conatins at least one 'w' char) : w3resource
+Test the string contains 'w' character between 1 and 3 times:
+Sample Output
+True
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        string sampleString = "w3resourcewww";
+
+        Console.WriteLine(StringCheck(sampleString));
+    }
+
+    public static bool StringCheck(string s)
+    {
+        bool result = false;
+        int amountOfRucrrence = 0;
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (s[i].Equals('w'))
+            {
+                amountOfRucrrence++;
+            }
+        }
+
+        if (amountOfRucrrence <= 3)
+        {
+            result = true;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+42. Write a C# program to create a new string where the first 4 characters will be in lower case. If the string is less than 4 characters
+then make the whole string in upper case. Go to the editor
+Test Data:
+Input a string: w3r
+Sample Output
+W3R
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        string sampleString = "w3r";
+
+        Console.WriteLine(StringCheck(sampleString.ToLower()));
+    }
+
+    public static string StringCheck(string sampleString)
+    {
+        if (sampleString.Length < 4)
+        {
+            return sampleString.ToUpper();
+        }
+        else
+        {
+            return sampleString.ToLower();
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+43. Write a C# program to check if a given string starts with "w" and immediately followed by two "ww". Go to the editor
+Test Data:
+Input a string : www
+Sample Output
+False
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        Console.Write("Input a string : ");
+        string str = Console.ReadLine();
+        Console.WriteLine(test(str));
+    }
+    public static bool test(string str)
+    {
+        var ctr = 0;
+        var secondctr = 0;
+
+        for (var i = 0; i < str.Length - 1; i++)
+        {
+            if (str[i].Equals('w')) ctr++;
+            secondctr++;
+            if (str.Substring(i, 2).Equals("ww")  && ctr >= 2) 
+                return true;
+        }
+        return false;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+44. Write a C# program to create a new string of every other character (odd position) from the first position of a given string. Go to the editor
+Test Data:
+Input a string : w3resource
+Sample Output
+wrsuc
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        Console.Write("Input a string : ");
+        string str = Console.ReadLine();
+        test(str);
+    }
+    public static void test(string str)
+    {
+        for (int i = 0; i < str.Length; i+=2)
+        {
+            Console.Write(str[i]);
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+45. Write a C# program to count a specified number in a given array of integers. Go to the editor
+Test Data:
+Input an integer: 5
+Sample Output
+Number of 5 present in the said array: 2
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] intArray = { 2, 3, 5, 2, 5, 9 };
+        Console.Write("Input a int : ");
+        int intToCheck = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(CheckNumber(intArray, intToCheck));
+    }
+    public static int CheckNumber(int[] intArray, int intToCheck)
+    {
+        int result = 0;
+        int i = 0;
+
+        foreach (int item in intArray)
+        {
+            if (intArray[i] == intToCheck) // if 2 == 2 result =2, 
+            {
+                result++;
+            }
+            i++;
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+46. Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more. Go to the editor
+Test Data:
+Input an integer: 25
+Sample Output
+False
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] intArray = { 20, 3, 5, 2, 5, 9 };
+        Console.Write("Input a int : ");
+        int intToCheck = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine(CheckNumber(intArray, intToCheck));
+    }
+    public static bool CheckNumber(int[] intArray, int intToCheck)
+    {
+        char[] GetIntArray(int num) // converts the single int number being checked within the initial array into an array
+        {
+            string test = num.ToString();
+            char[] test2 = test.ToCharArray();
+            //List<int> listOfInts = new List<int>();
+            //while (num > 0)
+            //{
+            //    listOfInts.Add(num % 10);
+            //    num = num / 10;
+            //}
+            //listOfInts.Reverse();
+            return test2;
+        }
+        // GetIntArray(intToCheck).Length
+        try
+        {
+            foreach (int item in intArray)
+            {
+                // GetIntArray(intArray[intArray.Length - 1]).Length is getting intArray[of instance of the length of the new array created by
+                // GetIntArray method
+                if ((intArray[0] == intToCheck && GetIntArray(intArray[intArray.Length - 1]).Length >= 1) || 
+                    (intArray[intArray.Length - 1] == intToCheck && GetIntArray(intArray[intArray.Length - 1]).Length >= 1))
+                {
+                    return true;
+                }
+            }
+        }
+        catch (Exception)
+        {
+
+            throw new Exception("Out of bounds array exception, please enter a value within range");
+        }
+        return false;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+46. Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more. Go to the editor
+Test Data:
+Input an integer: 25
+Sample Output
+False
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] intArray = { 20, 3, 5, 2, 5, 9 };
+
+        Console.WriteLine(SumOfIntArray(intArray));
+    }
+    public static int SumOfIntArray(int[] intArray)
+    {
+        int result = 0;
+
+        for (int i = 0; i < intArray.Length; i++)
+        {
+            result += intArray[i];
+        }
+        return result;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+49. Write a C# program to check if the first element or the last element of the two arrays ( length 1 or more) are equal. Go to the editor
+Test Data:
+Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]
+Array2: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5]
+Check if the first element or the last element of the two arrays ( leng th 1 or more) are equal.
+Sample Output
+True
+C
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] Array1 = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+        int[] Array2 = { 1 , 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5 };
+
+        Console.WriteLine(CheckIntArray(Array1, Array2));
+        // or we can do the below but
+        Console.WriteLine((Array1[0].Equals(Array2[0])) || (Array1[Array1.Length - 1].Equals(Array2[Array2.Length - 1])));
+    }
+
+    public static bool CheckIntArray(int[] Array1, int[] Array2) // checking if int array 1 and 2
+    {
+        char[] checkIntLength(int intToCheck) // break int to check into an array to check length of it
+        {
+            char[] intArray = intToCheck.ToString().ToCharArray();
+            return intArray;
+        }
+
+        for (int i = 0; i < Array1.Length; i++)
+        {
+            if ( 
+                (Array1[0] == Array2[0] && // check if array 1 and 2 at first element is equal
+                    checkIntLength(Array1[0]).Length >= 1 && checkIntLength(Array2[0]).Length >= 1) || // check first element of each array is 1 or more
+                (Array1[Array1.Length - 1] == Array2[Array2.Length - 1] && // check if last element of each array is equal
+                    checkIntLength(Array1[Array1.Length - 1]).Length >= 1 && checkIntLength(Array2[Array2.Length - 1]).Length >= 1) // check last element of each array is 1 or more
+                )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+50. Write a C# program to rotate an array (length 3) of integers in left direction. Go to the editor
+Test Data:
+Array1: [1, 2, 8]
+After rotating array becomes: [2, 8, 1]
+C
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] Array1 = { 1, 2, 8 };
+
+        // Manual Cheat using string interpolation
+        Console.WriteLine($"{Array1[Array1.Length - 1]},{Array1[1]},{Array1[0]}");
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+51. Write a C# program to get the larger value between first and last element of an array (length 3) of integers. Go to the editor
+Test Data:
+Array1: [1, 2, 5, 7, 8]
+Highest value between first and last values of the said array: 8
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] Array1 = { 20, 2, 5, 7, 8 };
+
+        // Manual Cheat
+        if (Array1[0] > Array1[Array1.Length - 1])
+        {
+            Console.WriteLine(Array1[0]);
+        }
+        else
+        {
+            Console.WriteLine(Array1[Array1.Length - 1]);
+        }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+52. Write a C# program to create a new array of length containing the middle elements of three arrays (each length 3) of integers. Go to the editor
+Test Data:
+Array1: [1, 2, 5]
+Array2: [0, 3, 8]
+Array3: [-1, 0, 2]
+New array: [2, 3, 0]
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] Array1 = { 1, 2, 5 };
+        int[] Array2 = { 0, 3, 8 };
+        int[] Array3 = { -1, 0, 2 };
+
+        // Manual Cheat
+        Console.WriteLine($"{Array1[1]},{ Array2[1]},{ Array3[1]}");
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+Write a C# program to check if an array contains an odd number. Go to the editor
+Test Data:
+Original array: [2, 4, 7, 8, 6]
+Check if an array contains an odd number? True
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] Array1 = { 2, 4, 7, 8, 6 };
+
+        // Manual Cheat
+        Console.WriteLine(HasOdd(Array1));
+    }
+
+    private static bool HasOdd(int[] Array1)
+    {
+        foreach (var item in Array1)
+        {
+            if (!(item % 2).Equals(0))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+Fix the bug of converting and allowing correct value
+-----------------------------------------------------
+using System;
+
+public class MathUtils
+{
+    public static double Average(int a, int b)
+    {
+        return (Convert.ToDouble(a + b) / 2); // convert to double before dividing to ensure decimal is allowed
+    }
+
+    public static void Main(string[] args)
+    {
+        Console.WriteLine(Average(2, 1));
+    }
+}
+
+=========================================================================================================================================================================================================
+
+// Add two string arrays to Merge Names
+//Implement the UniqueNames method.When passed
+//two arrays of names, it will return an array containing
+//the names that appear in either or both arrays. The
+//returned array should have no duplicates.
+//For example, calling MergeNames.UniqueNames(new
+//string[]{'Ava', 'Emma', 'Olivia'}, new string[]{'Olivia',
+//'Sophia', 'Emma'}) should return an array containing
+//Ava, Emma, Olivia, and Sophia in any order.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+public class MergeNames
+{
+    public static string[] UniqueNames(string[] names1, string[] names2)
+    {
+        var result = names1.Union(names2);
+        return result.ToArray();
+    }
+
+    public static void Main(string[] args)
+    {
+        string[] names1 = new string[] { "Ava", "Emma", "Olivia" };
+        string[] names2 = new string[] { "Olivia", "Sophia", "Emma" };
+        Console.WriteLine(string.Join(", ", MergeNames.UniqueNames(names1, names2))); // should print Ava, Emma, Olivia, Sophia
+    }
+}
+
+=========================================================================================================================================================================================================
+
+Alert Service
+
+Refactor the AlertService and AlertDAO classes:
+
+Create a new interface, named IAlertDAO, that contains the same methods as AlertDAO.
+AlertDAO should implement the IAlertDAO interface.
+AlertService should have a constructor that accepts IAlertDAO.
+The RaiseAlert and GetAlertTime methods should use the object passed through the constructor.
+
+using System.Collections.Generic;
+using System;
+
+public class AlertService
+{
+    private readonly IAlertDAO storage; //declare interface to be used is storage
+    public AlertService(IAlertDAO _alertDAO)
+    {
+        storage = _alertDAO; // assign interface storage variable that accepts it in the constructor of this class
+    }
+
+    public Guid RaiseAlert()
+    {
+        return this.storage.AddAlert(DateTime.Now); // retrieves add alert method from the interface, but uses value after being parsed into the constructor
+    }
+
+    public DateTime GetAlertTime(Guid id)
+    {
+        return this.storage.GetAlert(id);
+    }
+}
+// interface has the propery for the AddAlert and   
+    public interface IAlertDAO
+        {
+            Guid AddAlert(DateTime time);
+            DateTime GetAlert(Guid id);
+        }
+
+    // inherit props from interface and implement it
+    public class AlertDAO : IAlertDAO
+    {
+        private readonly Dictionary<Guid, DateTime> alerts = new Dictionary<Guid, DateTime>();
+
+        public Guid AddAlert(DateTime time)
+        {
+            Guid id = Guid.NewGuid();
+            this.alerts.Add(id, time);
+            return id;
+        }
+
+        public DateTime GetAlert(Guid id)
+        {
+            return this.alerts[id];
+        }
+    }
+
+=========================================================================================================================================================================================================
+
+User Input
+
+/*
+ 
+User interface contains two types of user input controls: TextInput, which accepts all characters and NumericInput, which accepts only digits.
+
+Implement the class TextInput that contains:
+
+Public method void Add(char c) - adds the given character to the current value
+Public method string GetValue() - returns the current value
+Implement the class NumericInput that:
+
+Inherits TextInput
+Overrides the Add method so that each non-numeric character is ignored
+For example, the following code should output "10":
+
+TextInput input = new NumericInput();
+input.Add('1');
+input.Add('a');
+input.Add('0');
+Console.WriteLine(input.GetValue());
+
+ */
+
+using System;
+using System.Collections.Generic;
+
+public class TextInput
+{
+    // Create a list to add all values
+    public IList<char> list = new List<char>();
+    public virtual void Add(Char c) // adds the given character to the current value
+    {
+        list.Add(c); // adding values in the list
+    }
+    public string GetValue() // returns the current value
+    {
+        string r = "";
+        foreach (char l in list)
+        {
+            r = r + l; // increment the count r by 1 to check each element inside the list
+        }
+        return r;
+    }
+}
+
+public class NumericInput : TextInput
+{
+    public override void Add(Char c) // Overrides the Add method so that each non-numeric character is ignored
+    {
+        if (!Char.IsNumber(c))
+        { // do nothing
+        }
+        else
+        {
+            list.Add(c);
+        }
+    }
+}
+public class UserInput
+{
+
+    public static void Main(string[] args)
+    {
+        TextInput input = new NumericInput();
+        input.Add('1');
+        input.Add('a');
+        input.Add('0');
+        Console.WriteLine(input.GetValue());
+    }
+}
