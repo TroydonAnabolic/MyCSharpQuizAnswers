@@ -1,8 +1,6 @@
 ﻿/*
  
-58. Write a C# program which will accept a list of integers and checks how many integers are needed to complete the range. Go to the editor
-Sample Example [1, 3, 4, 7, 9], between 1-9 -> 2, 5, 6, 8 are not present in the list. So output will be 4.
-Click me to see the solution
+59. Write a C# program to check whether it is possible to create a strictly increasing sequence from a given sequence of integers as an array.
 
  */
 using System;
@@ -16,36 +14,29 @@ class Test
 
     public static void Main()
     {
-        int[] intArray = { 1, 3, 4, 7, 9 };
+        // sequence formula: n2 − 1 where n is the current element number in the array
+        int[] intArray = { 0, 3, 8, 15 }; // next 5 should be 24, 35, 48, 63, 80
 
-        Console.WriteLine($"The number of integers missing to complete the range is: {MissingInteger(intArray)}");
+        Console.WriteLine($"The next 5 numbers in the sequence is:");
+        GetSequence(intArray);
     }
 
-    private static int MissingInteger(int[] intArray)
+    private static void GetSequence(int[] intArray)
     {
-        int i = 0, intToAdd = 0,  difference ;
+        List<int> intList = intArray.ToList();
+        int seq ;
 
-        // check all elements except the last element, to avoid out of bounds
-        while (i + 1 < intArray.Length)
+        // get the next 5 elements in the sequence
+        for (int i = 0 ; i < 5; i++)
         {
-            // check if the element value + 1, is equal to the value of the next element
-            if((intArray[i] + 1).Equals(intArray[i + 1])) // iteration 1: intArray[0] + 1 != intArray[1] so follow else: 3 - 1 = 2 - 1
-            {
-                // if it is then add 0 to the value of intToAdd
-                difference = 0;
-            }
-            else
-            {
-                // if the difference is greater than 2, then that is the number of elements missing, otherwise it is one element missing
-                difference = ((intArray[i + 1] - intArray[i]) > 2) ?
-                             (intArray[i + 1] - intArray[i]) - 1 :
-                               1;
+            // increase the length of list to avoid out of bounds and increase length
+            intList.Add(0);
 
-            }
-            // increase the value of intToAdd, by the amount of difference
-            intToAdd += difference; 
-            i++;
+                // apply formula new list length * new list length - 1
+                seq = intList.Count() * intList.Count() - 1;
+                // re-assign the last element with the value of the above derivation using formula
+                intList[intList.Count - 1] = seq;
         }
-        return intToAdd;
+        Array.ForEach((intList.ToArray()), Console.WriteLine);
     }
 }
