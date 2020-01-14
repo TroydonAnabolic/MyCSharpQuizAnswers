@@ -1,15 +1,7 @@
 ﻿/*
  
-60. Write a C# program to calculate the sum of all the intgers of a rectangular matrix except those integers which are located below an intger of value 0. Go to the editor
-Sample Example:
-matrix = [[0, 2, 3, 2],
-[0, 6, 0, 1],
-[4, 0, 3, 0]]
-Eligible integers which will be participated to calculate the sum -
-matrix = [[X, 2, 3, 2],
-[X, 6, X, 1],
-[X, X, X, X]]
-Therefore sum will be: 2 + 3 + 2 + 6 + 1 = 14
+61. Write a C# program to sort the integers in ascending order without moving the number -5. Go to the editor
+
  */
 using System;
 using System.Collections.Generic;
@@ -19,33 +11,35 @@ using System.Text;
 
 class Test
 {
-
     public static void Main()
     {
-        // declare 2D array
-        int[,] matrix = new int[,] {{0, 2, 3, 2},
-                                    {0, 6, 0, 1},
-                                    {4, -100, 3, 0}};
+        int[] intsToSort = { 6, 2, 3, 2, -5, 100, 20 }; 
 
-
-        Console.WriteLine($"The product of the 2D array is:{Add2DArray(matrix)} ");
+        Console.WriteLine($"The sorted array ");
+        Array.ForEach(SortIntArray(intsToSort), Console.Write);
     }
 
-    private static int Add2DArray(int[,] intArray)
+    private static int[] SortIntArray(int[] intsToSort)
     {
-        int result = 0;
-
-        for (int i = 0; i < intArray.GetLength(0); i++)
+        int swapper = 0;
+        for (int k = 0; k < intsToSort.Length; k++)
         {
-            // nested for loop to check each element inside the nested loop of the parent 
-            for (int k = 0; k < intArray.GetLength(1); k++)
+            // we use a double loop so we can iterate over each number to sort the loop the number of times of the length
+            for (int i = 0; i < intsToSort.Length - 1; i++)
             {
-                if (intArray[i, k] > 0) // if the value is not negative add the element being checked
-                    result += intArray[i, k];
-                else
-                    result += 0;
+                    if ( // if the one in front is larger AND the -5 is not the variable looked at by instance or the variable in front
+                        intsToSort[i] > intsToSort[i + 1] && !intsToSort[i].Equals(-5) && !intsToSort[i + 1].Equals(-5)
+                        )
+                    {
+                        // value on instance assigned the value of swapper. e.g 6
+                        swapper = intsToSort[i];
+                        // the value in front of instance is assigned to instance so 2
+                        intsToSort[i] = intsToSort[i + 1];
+                        // swapper is then given to the value in front
+                        intsToSort[i + 1] = swapper;
+                    }
             }
         }
-        return result;
+        return intsToSort;
     }
 }
