@@ -1,7 +1,15 @@
 ﻿/*
  
-59. Write a C# program to check whether it is possible to create a strictly increasing sequence from a given sequence of integers as an array.
-
+60. Write a C# program to calculate the sum of all the intgers of a rectangular matrix except those integers which are located below an intger of value 0. Go to the editor
+Sample Example:
+matrix = [[0, 2, 3, 2],
+[0, 6, 0, 1],
+[4, 0, 3, 0]]
+Eligible integers which will be participated to calculate the sum -
+matrix = [[X, 2, 3, 2],
+[X, 6, X, 1],
+[X, X, X, X]]
+Therefore sum will be: 2 + 3 + 2 + 6 + 1 = 14
  */
 using System;
 using System.Collections.Generic;
@@ -14,29 +22,30 @@ class Test
 
     public static void Main()
     {
-        // sequence formula: n2 − 1 where n is the current element number in the array
-        int[] intArray = { 0, 3, 8, 15 }; // next 5 should be 24, 35, 48, 63, 80
+        // declare 2D array
+        int[,] matrix = new int[,] {{0, 2, 3, 2},
+                                    {0, 6, 0, 1},
+                                    {4, -100, 3, 0}};
 
-        Console.WriteLine($"The next 5 numbers in the sequence is:");
-        GetSequence(intArray);
+
+        Console.WriteLine($"The product of the array is:{Add2DArray(matrix)} ");
     }
 
-    private static void GetSequence(int[] intArray)
+    private static int Add2DArray(int[,] intArray)
     {
-        List<int> intList = intArray.ToList();
-        int seq ;
+        int result = 0;
 
-        // get the next 5 elements in the sequence
-        for (int i = 0 ; i < 5; i++)
+        for (int i = 0; i < intArray.GetLength(0); i++)
         {
-            // increase the length of list to avoid out of bounds and increase length
-            intList.Add(0);
-
-                // apply formula new list length * new list length - 1
-                seq = intList.Count() * intList.Count() - 1;
-                // re-assign the last element with the value of the above derivation using formula
-                intList[intList.Count - 1] = seq;
+            // nested for loop to check each element inside the nested loop of the parent 
+            for (int k = 0; k < intArray.GetLength(1); k++)
+            {
+                if (intArray[i, k] > 0) // if the value is not negative add the element being checked
+                    result += intArray[i, k];
+                else
+                    result += 0;
+            }
         }
-        Array.ForEach((intList.ToArray()), Console.WriteLine);
+        return result;
     }
 }
