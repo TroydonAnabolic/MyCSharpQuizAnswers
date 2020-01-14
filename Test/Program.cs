@@ -28,7 +28,7 @@ class Test
                                     {4, -100, 3, 0}};
 
 
-        Console.WriteLine($"The product of the array is:{Add2DArray(matrix)} ");
+        Console.WriteLine($"The product of the 2D array is:{Add2DArray(matrix)} ");
     }
 
     private static int Add2DArray(int[,] intArray)
