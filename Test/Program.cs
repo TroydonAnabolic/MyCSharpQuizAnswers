@@ -1,9 +1,6 @@
 ﻿/*
  
-56. Write a C# program to check if a given string is a palindrome or not. Go to the editor
-Sample Example:
-For 'aaa' the output should be true
-For 'abcd' the output should be false
+ 57.Write a C# program to find the pair of adjacent elements that has the highest product of an given array of integers
 
  */
 using System;
@@ -17,31 +14,30 @@ class Test
 
     public static void Main()
     {
+        int[] intArray = { 6, 1, 12, 3, 1, 4, 20};
         Console.WriteLine($"Enter a value to check if the string is a palindrome");
-        string checkString = Console.ReadLine();
 
-        Console.WriteLine($"Is the string a palindrome? {IsPalindrome(checkString)}");
+        Console.WriteLine($"The highest product is {HighestIntProduct(intArray)}");
     }
 
-    private static bool IsPalindrome(string checkString)
+    private static int HighestIntProduct(int[] intArray)
     {
-        bool result = true;
-        int k = checkString.Length - 1; // k starts at final index
+        // initial product we test is the first and second
+        int i = 0;
+        // the first product value in the variable is the first 2 which is 6 * 1 = 6
+        int product = intArray[i] * intArray[i + 1] ;
+        // move i to element 2
+        i++;
 
-        for (int i = 0; i < checkString.Length/2; i++) // iterate until we reach half way through string array. e.g 'hooh'. length = 4, we do 2 iterations
+        // check all elements except the last element, to avoid out of bounds
+        while (i + 1 < intArray.Length)
         {
-            // if the current instance of i matches instance instance of k(k is always the opposite of i)
-            if (checkString[i].Equals(checkString[k])) 
-            {
-                k--; 
-                continue;
-            }
-            else
-            {
-                result = false; // if it does not match, assign result as false and break loop
-                break;
-            }
+            // product is assigned the value if the checked instance product is more than current store value
+            product = (intArray[i] * intArray[i + 1]) > product ? // is 1*12 > 6
+                      intArray[i] * intArray[i + 1] : // if true then keep iterating and assign product to this instance
+                      product; // otherwise let product remain product
+            i++;
         }
-       return result;
+        return product;
     }
 }
