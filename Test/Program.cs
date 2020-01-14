@@ -16,7 +16,7 @@ class Test
         int[] intsToSort = { 6, 2, 3, 2, -5, 100, 20 }; 
 
         Console.WriteLine($"The sorted array ");
-        Array.ForEach(SortIntArray(intsToSort), Console.Write);
+        Array.ForEach(SortIntArray(intsToSort), Console.WriteLine);
     }
 
     private static int[] SortIntArray(int[] intsToSort)
