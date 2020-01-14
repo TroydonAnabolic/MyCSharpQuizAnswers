@@ -1701,7 +1701,6 @@ class Test
     {
         int[] Array1 = { 1, 2, 8 };
 
-        // Manual Cheat using string interpolation
         Console.WriteLine($"{Array1[Array1.Length - 1]},{Array1[1]},{Array1[0]}");
     }
 }
@@ -1728,7 +1727,6 @@ class Test
     {
         int[] Array1 = { 20, 2, 5, 7, 8 };
 
-        // Manual Cheat
         if (Array1[0] > Array1[Array1.Length - 1])
         {
             Console.WriteLine(Array1[0]);
@@ -1807,6 +1805,163 @@ class Test
         return false;
     }
 }
+=========================================================================================================================================================================================================
+/*
+ 
+54. Write a C# program to get the century from a year. Go to the editor
+Click me to see the solution
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        string yearToCheck ="";
+        
+            while (!yearToCheck.Equals("q"))
+            {
+                Console.WriteLine("Enter year to check which century it is, To check 0, enter 00");
+                yearToCheck = Console.ReadLine();
+                if (yearToCheck.Equals("0"))
+                {
+                    Console.WriteLine("It is the 0th century");
+                }
+                else
+                {
+                    try
+                    {
+                        Console.WriteLine($"It is the {CheckYear(yearToCheck)} Century!");
+                    }
+                    catch (FormatException e)
+                    {
+                        throw new FormatException("Please enter positive numbers only, other characters will not work", e);
+                    }
+                }
+            }
+    }
+
+    private static string CheckYear(string yearToCheck)
+    {
+        string century = "";
+        char[] yearArray = yearToCheck.ToString().ToCharArray();
+
+        string OrdinalNumber(string century) // gets the ordinal value for the found century
+        {
+            int centuryInt = Convert.ToInt32(century);
+            // Convert int to int array for century
+            var digits = new List<int>();
+            while (centuryInt > 0) // e.g century 15
+            {
+                digits.Add(centuryInt % 10); // 5, 0.5 rounded is 1
+                centuryInt /= 10; // 0.5, 1
+            }
+            digits.Reverse();
+
+            // if century is within 1-9
+            if (digits.Count().Equals(1)) // if the length of century is between 1 - 9
+            {
+                if (centuryInt.Equals(0))
+                    return "th";
+                else if (centuryInt.Equals(1))
+                    return "st";
+                else if (centuryInt.Equals(2))
+                    return "nd";
+                else if (centuryInt.Equals(3))
+                    return "rd";
+            } 
+            else if (century.Length > 1)
+            {
+                // if the last number ends in 1 and does not have second to last as 1 end in 1st aka not ending in 11 as this is 11th not 11st, or 12th
+                if (digits[digits.Count() -1].Equals(1) && !(digits[digits.Count() - 2].Equals(1)) )
+                    return "st";
+                if (digits[digits.Count() - 1].Equals(2) && !(digits[digits.Count() - 2].Equals(1)))
+                    return "nd";
+                if (digits[digits.Count() - 1].Equals(3) && !(digits[digits.Count() - 2].Equals(1)))
+                    return "rd";
+                else return "th";
+            }
+                return "th";
+        }
+            if ( // we are converting to string first and then to int to avoid comparing with ASCI char value aka default int value
+                (Convert.ToInt32(yearArray[yearArray.Length - 1].ToString()).Equals(0)) && // checks the last element of char array is 0
+                (Convert.ToInt32(yearArray[yearArray.Length - 2].ToString()).Equals(0)) // checks the secoond to last element of char array is 0
+                )
+            {
+                // if the last two numbers end with 00 then no change, we just convert to string, string interpolation is used to add the ordinal number to the return value
+                century = (Convert.ToInt32(yearToCheck) / 100).ToString();
+                return $"{century}{OrdinalNumber(century)}";
+            }
+            else
+            {
+                // if the number does not end with 00 then we divid the given year to check by 100, then add 1
+                century = (Convert.ToInt32(yearToCheck) / 100 + 1).ToString();
+                return $"{century}{OrdinalNumber(century)}";
+            }
+    }
+}
+=========================================================================================================================================================================================================
+/*
+ 
+55. Write a C# program to find the pair of adjacent elements that has the largest product of an given array which is equal to a given value. 
+Array1: [1, 2, 5, 3, 5, 9, 1]
+Check value 10
+9 + 1 has the largest product and equal to 10
+
+
+
+ */
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+class Test
+{
+
+    public static void Main()
+    {
+        int[] Array1 = { 6, 1, 12, 3, 1, 4 };
+
+        Console.WriteLine($"Enter a value to check if it is the largest product, in the following array: Array1 = [ 6, 1, 12, 3, 1, 4 ]");
+        int checkValue = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine($"The largest value is {FindGreatest(checkValue, Array1)}");
+    }
+
+    private static bool FindGreatest(int checkValue, int[] Array1)
+    {
+        int array_index = 0;
+        int product = Array1[array_index] * Array1[array_index + 1];
+        bool result = false;
+
+        array_index++;
+        // while the array index plus one(start at index 2) is less than the length of the array but not equal(to avoid out of bounds), 
+        while (array_index + 1 < Array1.Length)
+        {
+            product = ((Array1[array_index] * Array1[array_index + 1]) > product) ? // is the instance and the product instance > current product value
+                       (Array1[array_index] * Array1[array_index + 1]) : // if yes then the new product variable becomes that instance value
+                        product; // if not then product is assigned its own value
+            array_index++; // increase instance
+        }
+
+       result = product.Equals(checkValue)? true: false;
+       return result;
+    }
+}
+            //if the item being checked is the last element in the array, then compare with the second last
+
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
 =========================================================================================================================================================================================================
 =========================================================================================================================================================================================================
 =========================================================================================================================================================================================================
