@@ -32,19 +32,6 @@ class Test
         string checkStr = "";
         StringBuilder sb = new StringBuilder();
 
-        //for (int i = 0; i < stringToReverse.Length - 1; i++) 
-        //{
-            // gets the first instance of 
-            //if (stringToReverse[i].Equals("("))
-            //{
-            //    // when an instance of
-            //    for (int k = 0; k > stringToReverse.Length; k--)  // p(rq)st => ts(qr)p
-            //    {
-            //        if (stringToReverse[k].Equals(")")) // when we find the value 
-            //        {
-            // return the string with the element in front of the '(', plus the elements up until ')'
-
-            //get
         sb.Append(
             stringToReverse.Substring(
                 0, stringToReverse.IndexOf('('))
@@ -69,28 +56,19 @@ class Test
         
         sb.Append(ReverseString(checkStr));  // p(rq)st => Length = 7, lastindex = 4, firstindex = 1. 7 - 4 -1 = 2. Count = 2
 
-            //sb.Append(
-            //    stringToReverse.Substring(
-            //        stringToReverse.Length - 1, stringToReverse.LastIndexOf(')'))
-            //    );
-
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    // add the char of the instance to the sb
-            //    //sb.Append(stringToReverse[i]);
-            //}
-       // }
-
-        sb.ToString();
-
-        string sbString = sb.ToString();
-        //string[] sbArr = (string[])sbString.ToArray();
-
+        sb.Append(
+            stringToReverse.Substring( 
+                // to find the last elements , we need to find difference between the no. of elements count of last element - element number of ')'
+                stringToReverse.LastIndexOf(')') + 1, // skip '(' and start from there in return value
+                (stringToReverse.Length - stringToReverse.LastIndexOf(')') - 1) // 4, 7 - (7 - 4)
+                )
+            );
         return sb.ToString();
     }
 }
 
-// TO TRY: Try loop again using [i] and [k] to replace indexOf and LastIndexOf as they give the same value but might avoid out of bounds
+/*
+p(rq)st = pqrst
+(p(rq)st) = tsrqp
+"ab(cd(ef)gh)ij" = abhgefdcij
+ */
