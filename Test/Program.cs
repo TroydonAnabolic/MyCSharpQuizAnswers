@@ -1,7 +1,8 @@
 ﻿/*
- 
-61. Write a C# program to sort the integers in ascending order without moving the number -5. Go to the editor
-
+62. Write a C# program to reverse the strings contained in each pair of matching parentheses in a given string and also remove the parentheses within the given string. Go to the editor
+p(rq)st = pqrst
+"(p(rq)st)" = tsrqp
+"ab(cd(ef)gh)ij" = abhgefdcij
  */
 using System;
 using System.Collections.Generic;
@@ -13,33 +14,83 @@ class Test
 {
     public static void Main()
     {
-        int[] intsToSort = { 6, 2, 3, 2, -5, 100, 20 }; 
+        Console.WriteLine("Enter the strings you want to reverse and unparanthesise");
+        string stringToReverse = Console.ReadLine();
 
-        Console.WriteLine($"The sorted array ");
-        Array.ForEach(SortIntArray(intsToSort), Console.WriteLine);
+        Console.WriteLine(stringToReverse.Substring(
+            0, 
+            stringToReverse.IndexOf('(')
+            ));
+
+        Console.WriteLine($"The reversed string which has it's paranthesis removed is: { ReverseAndRemoveParanthesis(stringToReverse) } ");
+
+        //Array.ForEach(SortIntArray(intsToSort), Console.WriteLine);
     }
 
-    private static int[] SortIntArray(int[] intsToSort)
+    private static string ReverseAndRemoveParanthesis(string stringToReverse) // e.g "p(rq)st"
     {
-        int swapper = 0;
-        for (int k = 0; k < intsToSort.Length; k++)
+        string checkStr = "";
+        StringBuilder sb = new StringBuilder();
+
+        //for (int i = 0; i < stringToReverse.Length - 1; i++) 
+        //{
+            // gets the first instance of 
+            //if (stringToReverse[i].Equals("("))
+            //{
+            //    // when an instance of
+            //    for (int k = 0; k > stringToReverse.Length; k--)  // p(rq)st => ts(qr)p
+            //    {
+            //        if (stringToReverse[k].Equals(")")) // when we find the value 
+            //        {
+            // return the string with the element in front of the '(', plus the elements up until ')'
+
+            //get
+        sb.Append(
+            stringToReverse.Substring(
+                0, stringToReverse.IndexOf('('))
+            );
+
+        
+        checkStr = stringToReverse.Substring(
+            stringToReverse.IndexOf('(') + 1, // skip the index of '('
+            stringToReverse.Length - stringToReverse.LastIndexOf(')') - stringToReverse.IndexOf('(') // we minus the total length by the first instance of '(' and last instance of ')'
+            );
+
+        string ReverseString(string check)
         {
-            // we use a double loop so we can iterate over each number to sort the loop the number of times of the length
-            for (int i = 0; i < intsToSort.Length - 1; i++)
+            StringBuilder sb2 = new StringBuilder();
+            for (int i = check.Length - 1; i >= 0; i--)
             {
-                    if ( // if the one in front is larger AND the -5 is not the variable looked at by instance or the variable in front
-                        intsToSort[i] > intsToSort[i + 1] && !intsToSort[i].Equals(-5) && !intsToSort[i + 1].Equals(-5)
-                        )
-                    {
-                        // value on instance assigned the value of swapper. e.g 6
-                        swapper = intsToSort[i];
-                        // the value in front of instance is assigned to instance so 2
-                        intsToSort[i] = intsToSort[i + 1];
-                        // swapper is then given to the value in front
-                        intsToSort[i + 1] = swapper;
-                    }
+                sb2.Append(check[i]);
             }
+
+            return sb2.ToString();
         }
-        return intsToSort;
+        
+        sb.Append(ReverseString(checkStr));  // p(rq)st => Length = 7, lastindex = 4, firstindex = 1. 7 - 4 -1 = 2. Count = 2
+
+            //sb.Append(
+            //    stringToReverse.Substring(
+            //        stringToReverse.Length - 1, stringToReverse.LastIndexOf(')'))
+            //    );
+
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    // add the char of the instance to the sb
+            //    //sb.Append(stringToReverse[i]);
+            //}
+       // }
+
+        sb.ToString();
+
+        string sbString = sb.ToString();
+        //string[] sbArr = (string[])sbString.ToArray();
+
+        return sb.ToString();
     }
 }
+
+// TO TRY: Try loop again using [i] and [k] to replace indexOf and LastIndexOf as they give the same value but might avoid out of bounds
