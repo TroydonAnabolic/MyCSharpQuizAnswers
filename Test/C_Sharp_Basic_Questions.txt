@@ -371,6 +371,8 @@ public class Exercise8
         }
     }
 
+    OR
+
     public static string remove_char(string str, int n)
     {
         return str.Remove(n, 1);
@@ -678,7 +680,7 @@ public class Exercise8
     {
         string inputString;
 
-        Console.WriteLine("Enter first int");
+        Console.WriteLine("Enter word to check");
         inputString = Console.ReadLine();
 
         Console.WriteLine(checkLongestWord(inputString));
@@ -1441,9 +1443,9 @@ class Test
 
         for (var i = 0; i < str.Length - 1; i++)
         {
-            if (str[i].Equals('w')) ctr++;
+            if (str[i].Equals('w')) ctr++; // once we meet the first instance of a w
             secondctr++;
-            if (str.Substring(i, 2).Equals("ww")  && ctr >= 2) 
+            if (str.Substring(i, 2).Equals("ww")  && ctr >= 2) // then check if the next 2 letters is ww and ensure counter is more than 1
                 return true;
         }
         return false;
@@ -1572,6 +1574,7 @@ class Test
             {
                 // GetIntArray(intArray[intArray.Length - 1]).Length is getting intArray[of instance of the length of the new array created by
                 // GetIntArray method
+                // we are basically checking if 1st number is equal and its length is more than 1
                 if ((intArray[0] == intToCheck && GetIntArray(intArray[intArray.Length - 1]).Length >= 1) || 
                     (intArray[intArray.Length - 1] == intToCheck && GetIntArray(intArray[intArray.Length - 1]).Length >= 1))
                 {
@@ -1590,11 +1593,7 @@ class Test
 =========================================================================================================================================================================================================
 /*
  
-46. Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more. Go to the editor
-Test Data:
-Input an integer: 25
-Sample Output
-False
+46. Write the sum of an array of ints
 
  */
 using System;
@@ -1885,7 +1884,7 @@ class Test
                     return "nd";
                 if (digits[digits.Count() - 1].Equals(3) && !(digits[digits.Count() - 2].Equals(1)))
                     return "rd";
-                else return "th";
+                else return "th"; // if it ends in 4th
             }
                 return "th";
         }
@@ -2579,3 +2578,980 @@ public class UserInput
         Console.WriteLine(input.GetValue());
     }
 }
+
+=========================================================================================================================================================================================================
+
+Armstrong Exercise
+
+        public static string Armstrong(int num)
+        {
+            // Convert int to int list
+            int num2 = num;
+            var digits = new List<int>();
+            while (num2 > 0) // e.g  15
+            {
+                digits.Add(num2 % 10); // 5, 0.5 rounded is 1
+                num2 /= 10; // 0.5, 1
+            }
+            digits.Reverse();
+
+            int totalSum = 0;
+
+            // loop around the number of digits
+            for (int i = 0; i < digits.Count; i++)
+            {
+                int currentSum = digits[i], counter = 1;
+                // for every number in the loop, we will multiply it by itself, based on length of loop
+                while (counter < digits.Count)
+                {
+                    currentSum *= digits[i];
+                    counter++;
+                }
+                // when we reach the last element only do we add the current product to the total sum
+                totalSum += currentSum;
+            }
+            if (totalSum == num) return $"{num} is an Armstrong number";
+            return $"{num} is not an Armstrong number";
+        }
+
+=========================================================================================================================================================================================================
+Prime Number
+
+         public static string Prime(int n)
+        {
+            bool isPrime = false;
+            // loop through every number smaller than the number to check, starting with more than 1
+            for (int i = 2; i < n; i++)
+            {
+                if (n % i == 0) break; // break the loop if it is divisible by another number
+                // when we reach the second to last iteration(b4 we can divide by itself), then we can declare isPrime as true
+                if (i == (n - 1)) isPrime = true;
+            }
+            
+            if (isPrime) return  $"{n} is a prime number.";
+            else return $"{n} is not a prime number.";
+        }
+=========================================================================================================================================================================================================
+Ugly Numbers
+
+        public static bool Ugly(int num)
+        {
+            int[] primeFactors = { 2, 3, 5 };
+            bool notFound = true;
+            int index = 0, counter = 0, initNum = num, checkBadPrime = 0;
+
+            while (notFound)
+            {
+                if (index == 3) index = 0; // if we reach the final value of array, then reset it so we can keep dividing until we reach find what we need.
+
+                // if num divided by on or more of the numbers has remainder of 0, then set notFound as false
+                if (num % primeFactors[index] == 0 )
+                {
+                    // if the modulus is 0, we check to ensure the number we are multiplying it by is not a bad prime factor
+                    checkBadPrime = num / primeFactors[index];
+                    // if its a prime number and not one of the qualifying prime numbers, then break out of loop so notFound remains false
+                    if (isPrime(checkBadPrime) && checkBadPrime != 2 && checkBadPrime != 3 && checkBadPrime != 5) break;
+
+                    // once we found 
+                        notFound = false;
+                }
+                // else num /= primeFactors[index];
+
+                // increment
+                index++;
+                counter++;
+
+                // if we iterate up to half the value of num and declare it as not an ugly number
+                if (counter == (initNum / 2)) break;
+            }
+            return notFound ? false : true;
+        }
+        public static bool isPrime(int n)
+        {
+            // loop through every number smaller than the number to check, starting with more than 1
+            for (int i = 2; i < n; i++)
+            {
+                if (n % i == 0) break; // break the loop if it is divisible by another number
+                // when we reach the second to last iteration(b4 we can divide by itself), then we can declare isPrime as true
+                if (i == (n - 1)) return true;
+            }
+            return false;
+        }
+
+SIMPLE SOLUTION:
+
+        public static bool Ugly(int num)
+        {
+             if (num == 0)
+                return false;
+             while (num % 2 == 0)
+                num = num / 2;
+             while (num % 3 == 0)
+                num = num / 3;
+             while (num % 5 == 0)
+                num = num / 5;
+            return (num == 1);
+        }
+=========================================================================================================================================================================================================
+Lucas Number
+
+         public static int Lucas(int n)
+        {
+            // declaring base values 
+            // for positions 0 and 1 
+            int a = 2, b = 1, c, i; 
+  
+            if (n == 0) 
+                return a; 
+  
+            // generating number 
+            for (i = 2; i <= n; i++) { 
+                // pretty much just keep swapping the positions of b and c
+                c = a + b; 
+                a = b; 
+                b = c; 
+            } 
+  
+            return b; 
+        }
+=========================================================================================================================================================================================================
+Kaprekar numbers
+----------------
+         public static bool IsKaprekar(int n)
+        {
+            if (n == 1) 
+                return true; 
+  
+            // Count number of digits  
+            // in square 
+            int sq_n = n * n; 
+            int count_digits = 0; 
+            while (sq_n != 0) { 
+                count_digits++; 
+                sq_n = sq_n / 10; 
+            } 
+  
+            // Recompute square as it was changed 
+            sq_n = n * n;  
+          
+            // Split the square at different poitns 
+            // and see if sum of any pair of splitted 
+            // numbers is equal to n. 
+            for (int r_digits = 1; r_digits < count_digits; r_digits++) 
+            { 
+              
+                int eq_parts = (int)Math.Pow(10, r_digits); 
+  
+                // To avoid numbers like 10, 100, 1000  (basically any number that is powered by 10 and equal to n will have 0)
+                // These are not Karprekar numbers 
+                if (eq_parts == n) 
+                    continue; 
+  
+                // Find sum of current parts and compare 
+                // with n 
+                // when the squared number divided by iterations added to the sqared number / iteration is equal to the n number
+                int sum = sq_n / eq_parts + sq_n % eq_parts; 
+                if (sum == n) 
+                    return true; 
+            }
+            return false; 
+        }
+
+        // less elegant way
+                public static bool IsKaprekar(int n)
+        {
+            int product = n * n;
+            // convert to string to access as array
+            string productString = product.ToString(), secondHalf = string.Empty;
+            // concatenate the first half with the second half after making them into string, to avoid using chars because adding two chars just add their ASCII instead
+            string firstHalf = productString[0].ToString() + productString[1].ToString();
+            // only assign the 4'th digit if there are 4 digits
+            if (productString.Length > 3 && productString.Length <= 4) secondHalf = productString[2].ToString() + productString[3].ToString();
+            else if (productString.Length > 4) secondHalf = productString[2].ToString() + productString[3].ToString() + productString[4].ToString();
+            else secondHalf = productString[2].ToString();
+            // if either side is 0 then
+            if (Convert.ToInt32(secondHalf) == 0) return false;
+            // concatenate the first and second half and convert before checking if equal to product
+            else if (Convert.ToInt32(firstHalf + secondHalf) == product) return true;
+            else return false;
+        }
+=========================================================================================================================================================================================================
+Phone Directory search
+
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        
+        // get the number of entries
+        int n = Convert.ToInt32(Console.ReadLine());
+        IDictionary<string, string> phoneListing = new Dictionary<string, string>();
+        // based on the number of lines, keep doing the below
+        for (int i = 0; i < n; i++)
+        {
+            // Get the input for the key value 
+            string input = Console.ReadLine();
+            
+            // break it into a string
+            string[] keyValueArr = input.Split();
+            
+            // then add it to the phone listing
+            // the first element will always be key and next will be value
+            phoneListing.Add(keyValueArr[0], keyValueArr[1]);
+        }
+        
+        string query = string.Empty, result = string.Empty;
+        bool queriesEnded = false;
+        // now keep retrieving the unlimited queries
+        // look up the key value dict for the number
+        while (!queriesEnded)
+        {
+            query = Console.ReadLine();
+            
+            // if the query is null then break from the loop
+            if (query == null) 
+            {
+                queriesEnded = true;
+                break;
+            }
+            // try get the value of an unknown query key
+            if (phoneListing.TryGetValue(query, out result))
+            {
+                // if the result found is not null - print it
+                Console.WriteLine($"{query}={phoneListing[query]}");
+            }
+            else Console.WriteLine("Not found");
+        }
+    }
+}
+=========================================================================================================================================================================================================
+Recursion
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    // Complete the factorial function below.
+    static int factorial(int n) {
+        
+        if (n > 1) 
+        {
+            return n * factorial(n - 1);
+        }
+        // if n is 1, then that is the only factorial
+        else return n;
+
+    }
+
+    static void Main(string[] args) {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        // this function keeps getting called until n = 1 
+        // e.g input = 3 : 3 * 2 is first return 3 * (3 - 1) * ( 2 - 1 ) = 6 (over here n is 3 first, then n is 3 - 1, then n is 2- 1, as this case n is 1, we end recursive calls)
+        int result = factorial(n);
+
+        textWriter.WriteLine(result);
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
+}
+
+=========================================================================================================================================================================================================
+using System;
+
+namespace Coding.Exercise
+{
+    public class Exercise
+    {
+        // function to get the square sum of a given number e.g input 32 => 3^ 2 + 2^2 = 13
+        static int numSquareSum(int n) 
+        { 
+            int squareSum = 0; 
+            while (n!= 0) 
+            { 
+                squareSum += (n % 10) *  (n % 10); 
+                n /= 10; 
+            } 
+            return squareSum; 
+        } 
+        
+        public static bool IsHappy(int n)
+        {
+            // initially check the value of the num square sum
+             n = numSquareSum(n);
+             
+            // as long as the output of the num square sum is not 4, check if the number is happy
+            // if the first or any iteration has a value of 4, it will exit the while loop and return false
+            while (n != 4)
+            {
+                // the moment we find the num square sum is 1, we will break out of the loop and function and return true
+                if (n == 1)
+                    return true;
+                // keep applying the square sum
+                n = numSquareSum(n);
+            }
+            
+            return false;
+        }
+    }
+}
+=========================================================================================================================================================================================================
+
+
+class Solution {
+//n:15 an integer representing Bobby's initial amount of money
+//c:3 an integer representing the cost of a chocolate bar
+//m:2 an integer representing the number of wrappers he can turn in for a free bar
+
+    // Complete the chocolateFeast function below.
+    static int chocolateFeast(int n, int c, int m) {
+            bool canBuyMoreChocs = true;
+            int remainingWrappers = 0, chocolatesEaten = 0;
+            
+            // buy chocolates
+            chocolatesEaten = n / c;
+            // count the number of wrappers from it
+            remainingWrappers = chocolatesEaten;
+            
+            // keep looping until we run out of wrappers and money to buy more chocs
+            while (canBuyMoreChocs)
+            {
+                // when the number of wrappers remaining cannot buy another choc
+                if (remainingWrappers < m) 
+                    canBuyMoreChocs = false;
+                else 
+                {
+                    // use the remaining wrappers to buy more chocolates
+                    // eat more chocs, which is remaining wrappers - remainder after
+                    // eating more
+                    int chocolatesEatenJustNow = 
+                    (remainingWrappers - (remainingWrappers % m))/ m; 
+                    // remainingWrappers % m gives remainder after eating
+                    chocolatesEaten += chocolatesEatenJustNow;
+                    // the number of wrappers remaining is the remainder of wrappers +
+                    // how many chocolates we just ate
+                    remainingWrappers = (remainingWrappers % m) + chocolatesEatenJustNow;
+                }
+            }
+            return chocolatesEaten;
+    }
+
+    static void Main(string[] args) {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        int t = Convert.ToInt32(Console.ReadLine());
+
+        for (int tItr = 0; tItr < t; tItr++) {
+            string[] ncm = Console.ReadLine().Split(' ');
+
+            int n = Convert.ToInt32(ncm[0]);
+
+            int c = Convert.ToInt32(ncm[1]);
+
+            int m = Convert.ToInt32(ncm[2]);
+
+            int result = chocolateFeast(n, c, m);
+
+            textWriter.WriteLine(result);
+        }
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
+}
+
+=========================================================================================================================================================================================================
+   Find number of consecutive 1's in a binary nnumber
+        static void Main(string[] args)
+        {
+            int[] n = { 65535, 439, 524275 };
+
+            for (int j = 0; j < n.Length; j++)
+            {
+
+
+                StringBuilder sb = new StringBuilder();
+
+                // create a binary number from the base 10 decimal number
+                while (n[j] > 0)
+                {
+                    int remainder = n[j] % 2;
+                    // always append to the start index, as when coverting to binary we reverse all remainders
+                    sb.Insert(0, remainder.ToString());
+                    n[j] /= 2;
+                }
+                string binaryRepresentation = sb.ToString();
+                int consecutiveOnes = 0, maxConsecOnes = 0;
+                bool firstOneFound = false, hasReset = false;
+                // incrememnt consecutive one's for each consec 1 occurence
+                for (int i = 0; i < binaryRepresentation.Length - 1; i++)
+                {
+                    // when we find one one, we make maxConsecOne's equal one
+                    if (!firstOneFound && binaryRepresentation[i] == '1')
+                    {
+                        maxConsecOnes = 1;
+                        consecutiveOnes = 1;
+                        firstOneFound = true; // ensure we no longer make these 1
+                    }
+                    // when the current position, and the one in front is the same, increment
+                    if (binaryRepresentation[i] == '1' && binaryRepresentation[i] == binaryRepresentation[i + 1])
+                    {
+                        consecutiveOnes++;
+                        // when we reach the final index, check to see if it is 1
+                        // (given the above condition of index in front is also 1)
+                        if (i == binaryRepresentation.Length - 2 &&
+                            binaryRepresentation[binaryRepresentation.Length - 1] == '1' && hasReset)
+                                consecutiveOnes++;
+                    }
+                    else
+                    {
+                        consecutiveOnes = 0;
+                        hasReset = true;
+                    }
+                    // when the one in front no longer matches, we make it 0 and stipulate
+                    // the new max if it's more than current
+                    if (consecutiveOnes > maxConsecOnes)
+                    {
+                        maxConsecOnes = consecutiveOnes;
+                        // consecutiveOnes = 0;
+                    }
+                }
+                Console.WriteLine(maxConsecOnes);
+            }
+=========================================================================================================================================================================================================\
+2D Arrays solution
+    static void Main(string[] args) {
+        int[][] arr = new int[6][];
+
+        for (int i = 0; i < 6; i++) 
+        {
+            arr[i] = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp =>     Convert.ToInt32(arrTemp));
+        }
+        
+        // intialize row size to be 4 as we can only move 4 times down ( or 1 less than total height of hour glass)
+        int maxTotalHourGlassSum = 0, currentTotal = 0, rowSize = arr.GetLength(0) - 2;
+        bool firstRound = true;
+        // loop array rows
+        for (int i = 0; i < rowSize; i++)
+        {
+            // make sure we can travel max 4 times right( or 1 less than total width of hour glass)
+            int columnSize = arr[i].Length - 2;
+            // loop over the array columns
+
+            for (int j = 0; j < columnSize; j++)
+            {
+                // reset current hour glass total
+                currentTotal = 0;
+                // first count the first hour glass top, first 3 columns
+                currentTotal += arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
+                // add the middle
+                currentTotal += arr[i + 1][j + 1];
+                // add the bottom three
+                currentTotal += arr[i + 2][j] + arr[i + 2][j + 1] +
+                arr[i + 2][j + 2];
+                // make the current equal max only on first round without max check
+                if (firstRound)
+                {
+                    maxTotalHourGlassSum = currentTotal;
+                    firstRound = false;
+                }
+                // now we will only assign the current total to max if it's more
+                if (currentTotal > maxTotalHourGlassSum) maxTotalHourGlassSum =     currentTotal;
+            }
+        }
+        Console.WriteLine(maxTotalHourGlassSum);
+    }
+=========================================================================================================================================================================================================
+Inheitance Quiz: Use Inheitance to print the first two lines using the base class, then calculate avg with the derived class
+
+
+using System;
+using System.Linq;
+
+class Person{
+	protected string firstName;
+	protected string lastName;
+	protected int id;
+	
+	public Person(){}
+	public Person(string firstName, string lastName, int identification){
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.id = identification;
+	}
+	public void printPerson(){
+		Console.WriteLine("Name: " + lastName + ", " + firstName + "\nID: " + id); 
+	}
+}
+
+class Student : Person{
+    private int[] testScores;  
+  
+    /*	
+    *   Class Constructor
+    *   
+    *   Parameters: 
+    *   firstName - A string denoting the Person's first name.
+    *   lastName - A string denoting the Person's last name.
+    *   id - An integer denoting the Person's ID number.
+    *   scores - An array of integers denoting the Person's test scores.
+    */
+    // Write your constructor here
+    public Student (string firstName, string lastName, int identification,
+        int[] scores) : base(firstName, lastName, identification)
+        // by calling the base constructor we implement it's constructor that assigns
+        // the parameter inputs to what needs to print to console
+        {
+            this.testScores = scores;
+        }
+    /*	
+    *   Method Name: Calculate
+    *   Return: A character denoting the grade.
+    */
+    // Write your method here
+    public string Calculate ()
+    {       
+        // calculate score letter now
+        int score = 0;
+        
+        // add all the scores together
+        for (int i = 0; i < testScores.Length; i++)
+        {
+            score += testScores[i];
+        }
+        
+        // change the value of score to be average
+        score = score/testScores.Length;
+        
+        // now print to the console the average score's corresponding letter
+        if (score <= 100 && score >= 90) return "O";
+        else if (score < 90 && score >= 80) return "E";
+        else if (score < 80 && score >= 70) return "A";
+        else if (score < 70 && score >= 55) return "P";
+        else if (score < 55 && score >= 40) return "D";
+        else if (score < 40) return "T";
+        else return string.Empty;
+    }
+}
+
+class Solution {
+	static void Main() {
+		string[] inputs = Console.ReadLine().Split();
+		string firstName = inputs[0];
+	  	string lastName = inputs[1];
+		int id = Convert.ToInt32(inputs[2]);
+		int numScores = Convert.ToInt32(Console.ReadLine());
+		inputs = Console.ReadLine().Split();
+	  	int[] scores = new int[numScores];
+		for(int i = 0; i < numScores; i++){
+			scores[i]= Convert.ToInt32(inputs[i]);
+		} 
+	  	
+		Student s = new Student(firstName, lastName, id, scores);
+		s.printPerson();
+		Console.WriteLine("Grade: " + s.Calculate() + "\n");
+	}
+}
+=========================================================================================================================================================================================================
+Throw customer Error message with the Exception class
+
+using System;
+
+//Write your code here
+class Calculator
+{
+    public int power(int n, int p)
+    {
+        if (n < 0 || p < 0)      
+        {
+            // override standard error message by throwing a new Error
+            throw new Exception("n and p should be non-negative");
+        }
+        else
+        {
+            return Convert.ToInt32(Math.Pow((double)n, (double)p));
+        }
+    }
+}
+class Solution{
+    static void Main(String[] args){
+        Calculator myCalculator=new  Calculator();
+        int T=Int32.Parse(Console.ReadLine());
+        while(T-->0){
+            string[] num = Console.ReadLine().Split();
+            int n = int.Parse(num[0]);
+            int p = int.Parse(num[1]); 
+            try{
+                int ans=myCalculator.power(n,p);
+                Console.WriteLine(ans);
+            }
+            catch(Exception e){
+               Console.WriteLine(e.Message);
+
+            }
+        }
+=========================================================================================================================================================================================================
+palindrome
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Solution {
+    // create instance variables
+    Stack<char> stack = new Stack<char>();
+    Queue<char> queue = new Queue<char>();
+    
+    // pushes a character onto a stack.
+    void pushCharacter(char ch)
+    {
+        stack.Push(ch);
+    }
+    
+    //  enqueues a character in the queue instance variable
+    void enqueueCharacter(char ch)
+    {
+        queue.Enqueue(ch);
+    }
+    
+    //  pops and returns the character at the top of the  stack instance var
+    char popCharacter() 
+    {
+        //  remove and returns the object at the top of the Stack (last insert)
+        return stack.Pop();
+    }
+    
+    // dequeues and returns the first character in the stack
+    char dequeueCharacter() 
+     {
+         return queue.Dequeue();
+     }
+
+    static void Main(String[] args) {
+        // read the string s.
+        string s = Console.ReadLine();
+        
+        // create the Solution class object p.
+        Solution obj = new Solution();
+        
+        // push/enqueue all the characters of string s to stack.
+        foreach (char c in s) {
+            obj.pushCharacter(c);
+            obj.enqueueCharacter(c);
+        }
+        
+        bool isPalindrome = true;
+        
+        // pop the top character from stack.
+        // dequeue the first character from queue.
+        // compare both the characters.
+        for (int i = 0; i < s.Length / 2; i++) {
+            if (obj.popCharacter() != obj.dequeueCharacter()) {
+                isPalindrome = false;
+                
+                break;
+            }
+        }
+        
+        // finally print whether string s is palindrome or not.
+        if (isPalindrome) {
+            Console.Write("The word, {0}, is a palindrome.", s);
+        } else {
+            Console.Write("The word, {0}, is not a palindrome.", s);
+        }
+    }
+}
+=========================================================================================================================================================================================================
+Bubble Sort
+
+    static void Main(String[] args) 
+    {
+        int n = Convert.ToInt32(Console.ReadLine());
+        string[] a_temp = Console.ReadLine().Split(' ');
+        int[] a = Array.ConvertAll(a_temp,Int32.Parse);
+        int numberOfSwaps = 0;
+        
+        // Write Your Code Here
+        for (int i = 0; i < n; i++) 
+        {
+            // Track number of elements swapped during a single array traversal
+            
+            for (int j = 0; j < n - 1; j++) 
+            {
+                // Swap adjacent elements if they are in decreasing order
+                if (a[j] > a[j + 1]) 
+                {
+                   int tmp = a[j];
+                   a[j] = a[j + 1];
+                   a[j + 1] = tmp;
+
+                    numberOfSwaps++;
+                }
+            }
+        }
+        
+        Console.WriteLine($"Array is sorted in {numberOfSwaps} swaps.");
+        Console.WriteLine("First Element: " + a[0]);
+        Console.WriteLine("Last Element: " + a[n - 1]);
+    }
+=========================================================================================================================================================================================================
+Custom generic method creation
+
+using System;
+
+class Printer
+{
+
+	/**
+	*    Name: PrintArray
+	*    Print each element of the generic array on a new line. Do not return anything.
+	*    @param A generic array
+	**/
+    // Write your code here
+    public static void PrintArray<T>(T[] array) 
+    {
+        foreach (var item in array)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
+    static void Main(string[] args)
+	{
+		int n = Convert.ToInt32(Console.ReadLine());
+		int[] intArray = new int[n];
+		for (int i = 0; i < n; i++)
+		{
+			intArray[i] = Convert.ToInt32(Console.ReadLine());
+		}
+		
+		n = Convert.ToInt32(Console.ReadLine());
+		string[] stringArray = new string[n];
+		for (int i = 0; i < n; i++)
+		{
+			stringArray[i] = Console.ReadLine();
+		}
+		
+		PrintArray<Int32>(intArray);
+		PrintArray<String>(stringArray);
+	}
+}
+
+=========================================================================================================================================================================================================
+BST Level-Order Traversal
+
+    static void levelOrder(Node root)
+    {
+        Queue queue = new Queue();
+        // when the main root element is not null, add it to the queue
+        if (root != null)
+        {
+            queue.Enqueue(root);
+        }
+
+        // while there are nodes to process
+        while (queue.Count > 0)
+        {
+            // make root the element that is to be dequeued (the first element to enter the queue)
+            root = (Node)queue.Dequeue();
+
+            // print the root element ( process tree's root )
+            Console.Write(root.data + " ");
+
+            // enqueue child elements from next level in order if not null
+            if (root.left != null)
+            {
+                queue.Enqueue(root.left);
+            }
+            if (root.right != null)
+            {
+                queue.Enqueue(root.right);
+            }
+        }
+    }
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================
+=========================================================================================================================================================================================================

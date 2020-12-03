@@ -1,74 +1,36 @@
-﻿/*
-62. Write a C# program to reverse the strings contained in each pair of matching parentheses in a given string and also remove the parentheses within the given string. Go to the editor
-p(rq)st = pqrst
-"(p(rq)st)" = tsrqp
-"ab(cd(ef)gh)ij" = abhgefdcij
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 
-class Test
+namespace ProgrammingExercise
 {
-    public static void Main()
+    class FindOutput
     {
-        Console.WriteLine("Enter the strings you want to reverse and unparanthesise");
-        string stringToReverse = Console.ReadLine();
 
-        Console.WriteLine(stringToReverse.Substring(
-            0, 
-            stringToReverse.IndexOf('(')
-            ));
 
-        Console.WriteLine($"The reversed string which has it's paranthesis removed is: { ReverseAndRemoveParanthesis(stringToReverse) } ");
-
-        //Array.ForEach(SortIntArray(intsToSort), Console.WriteLine);
-    }
-
-    private static string ReverseAndRemoveParanthesis(string stringToReverse) // e.g "p(rq)st"
-    {
-        string checkStr = "";
-        StringBuilder sb = new StringBuilder();
-
-        sb.Append(
-            stringToReverse.Substring(
-                0, stringToReverse.IndexOf('('))
-            );
-
-        
-        checkStr = stringToReverse.Substring(
-            stringToReverse.IndexOf('(') + 1, // skip the index of '('
-            stringToReverse.Length - stringToReverse.LastIndexOf(')') - stringToReverse.IndexOf('(') // we minus the total length by the first instance of '(' and last instance of ')'
-            );
-
-        string ReverseString(string check)
+        static void Main(string[] args)
         {
-            StringBuilder sb2 = new StringBuilder();
-            for (int i = check.Length - 1; i >= 0; i--)
+            int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            foreach (var item in (NoOdds(arr)))
             {
-                sb2.Append(check[i]);
+                Console.Write(item);
             }
-
-            return sb2.ToString();
         }
-        
-        sb.Append(ReverseString(checkStr));  // p(rq)st => Length = 7, lastindex = 4, firstindex = 1. 7 - 4 -1 = 2. Count = 2
 
-        sb.Append(
-            stringToReverse.Substring( 
-                // to find the last elements , we need to find difference between the no. of elements count of last element - element number of ')'
-                stringToReverse.LastIndexOf(')') + 1, // skip '(' and start from there in return value
-                (stringToReverse.Length - stringToReverse.LastIndexOf(')') - 1) // 4, 7 - (7 - 4)
-                )
-            );
-        return sb.ToString();
+
+        public static int[] NoOdds(int[] arr)
+        {
+            int[] newArr = new int[arr.Length] ;
+            // returning an array with less length
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % 2 == 0)
+                {
+                    newArr[i] = arr[i];
+                }
+            }
+            return newArr;
+        }
     }
 }
-
-/*
-p(rq)st = pqrst
-(p(rq)st) = tsrqp
-"ab(cd(ef)gh)ij" = abhgefdcij
- */
